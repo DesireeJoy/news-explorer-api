@@ -2,7 +2,7 @@
   "name": "news-explorer-api",
   "version": "1.0.0",
   "description": "Final Project API",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "test",
     "dev": "nodemon dev",
