@@ -6,11 +6,11 @@
   "scripts": {
     "test": "test",
     "dev": "nodemon dev",
-    "start": "start"
+    "start": "npm start"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DesireeJoy/news-explorer-api.git"
+    "url": "git+https://github.com/desinews/news-explorer-api.git"
   },
   "keywords": [
     "api",
@@ -21,13 +21,14 @@
   "author": "Desiree Joy",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/DesireeJoy/news-explorer-api/issues"
+    "url": "https://github.com/desinews/news-explorer-api/issues"
   },
-  "homepage": "https://github.com/DesireeJoy/news-explorer-api#readme",
+  "homepage": "https://github.com/desinews/news-explorer-api#readme",
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.13"
   }
 }
