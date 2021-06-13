@@ -22,7 +22,9 @@ mongoose.connect('mongodb://localhost:27017/finaldb', {
 
 // app.use('/user', auth, user);
 app.use('/articles', article);
-
+app.get('/', function (req, res) {
+  res.send('Got a GET request')
+})
 
 
 app.listen(PORT, () => {
