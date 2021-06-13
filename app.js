@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 
 const user = require('./routes/userRoutes');
-const article = require('./routes/articleRoutes');
-const { auth } = require('../middleware/auth');
+// const article = require('./routes/articleRoutes');
+// const { auth } = require('../middleware/auth');
 
 const app = express();
 // listen to port 3000
