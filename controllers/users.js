@@ -8,14 +8,7 @@ const User = require('../models/user');
 const {
   NotFoundError, InvalidError, MongoError, AuthError,
 } = require('../middleware/errorHandling');
-const {
-  userNotFoundMessage,
-  invalidDataMessage,
-  duplicateMessage,
-  authMessage,
-  incorrectMessage,
 
-} = require('../constants/constants');
 
 // returns information about the logged-in user (email and name)
 

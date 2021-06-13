@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 
 // const user = require('./routes/userRoutes');
-// const article = require('./routes/articleRoutes');
-// const { auth } = require('../middleware/auth');
+const article = require('./routes/articleRoutes');
+const { auth } = require('./middleware/auth');
 
 const app = express();
 // listen to port 3000
@@ -21,7 +21,7 @@ mongoose.connect('mongodb://localhost:27017/finaldb', {
 });
 
 // app.use('/user', auth, user);
-// app.use('/article', auth, article);
+app.use('/articles', article);
 
 
 
