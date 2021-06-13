@@ -1,9 +1,9 @@
 const express = require('express');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
 
-const user = require('./routes/userRoutes');
-const article = require('./routes/articleRoutes');
+// const user = require('./routes/userRoutes');
+// const article = require('./routes/articleRoutes');
 
 const app = express();
 // listen to port 3000
@@ -11,20 +11,20 @@ const { PORT = 3000 } = process.env;
 
 
 
-//connect to mongodb servwe
-mongoose.connect('mongodb://localhost:27017/finaldb', {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+// //connect to mongodb servwe
+// mongoose.connect('mongodb://localhost:27017/finaldb', {
+//   useNewUrlParser: true,
+//   useCreateIndex: true,
+//   useFindAndModify: false,
+//   useUnifiedTopology: true,
+// });
 
-app.use(user);
-app.use(article);
+// app.use(user);
+// app.use(article);
 
 
-app.post('/users', user);
-app.post('/articles', article);
+// app.post('/users', user);
+// app.post('/articles', article);
 
 
 
