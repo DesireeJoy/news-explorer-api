@@ -20,8 +20,8 @@ mongoose.connect('mongodb://localhost:27017/finaldb', {
   useUnifiedTopology: true,
 });
 
-app.use('/user', auth, user);
-app.use('/article', auth, article);
+// app.use('/user', auth, user);
+// app.use('/article', auth, article);
 
 
 
