@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 
-// const user = require('./routes/userRoutes');
-// const article = require('./routes/articleRoutes');
+const user = require('./routes/userRoutes');
+const article = require('./routes/articleRoutes');
+const { auth } = require('../middleware/auth');
 
 const app = express();
 // listen to port 3000
@@ -19,12 +20,8 @@ mongoose.connect('mongodb://localhost:27017/finaldb', {
   useUnifiedTopology: true,
 });
 
-// app.use(user);
-// app.use(article);
-
-
-// app.post('/users', user);
-// app.post('/articles', article);
+app.use('/user', auth, user);
+app.use('/article', auth, article);
 
 
 
