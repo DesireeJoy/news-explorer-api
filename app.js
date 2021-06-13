@@ -23,6 +23,10 @@ app.use(user);
 app.use(article);
 
 
+app.post('/users', user);
+app.post('/articles', article);
+
+
 
 app.listen(PORT, () => {
   // if everything works fine, the console will show which port the application is listening to

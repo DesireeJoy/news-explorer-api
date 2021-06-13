@@ -25,9 +25,13 @@
   },
   "homepage": "https://github.com/desinews/news-explorer-api#readme",
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "express-winston": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^2.0.7",
+    "winston": "^3.3.3"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "mongoose": "^5.12.13"
   }
