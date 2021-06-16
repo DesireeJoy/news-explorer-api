@@ -7,7 +7,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 const User = require('../models/user');
 const {
   NotFoundError, InvalidError, MongoError, AuthError,
-} = require('../middleware/errorHandling');
+} = require('../middleware/errorhandling');
 
 
 // returns information about the logged-in user (email and name)
