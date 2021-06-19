@@ -1,16 +1,17 @@
 # news-explorer-api
 
-## Author: Desiree Joy
+## Author: 
+*Desiree Joy*
 
 ## Technologies
 
-Mongoose/MongoDB
-Javascript
-Environment Variables
-Express Controllers/Routes/Middleware
+* Mongoose/MongoDB
+* Javascript
+* Environment Variables
+* Express Controllers/Routes/Middleware
 
 ## Links
 
-https://desinews.students.nomoreparties.site/
+[http Desinews](https://desinews.students.nomoreparties.site/)
 
-https://api.desinews.students.nomoreparties.site/
+[https Desinews](https://api.desinews.students.nomoreparties.site/)
