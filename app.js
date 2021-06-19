@@ -1,12 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require("body-parser");
+require("dotenv").config();
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const cors = require("cors");
-const { celebrate, Joi } = require("celebrate");
-
-
+const { celebrate, Joi, errors } = require("celebrate");
+const { requestLogger, errorLogger } = require('./middleware/logger'); 
 const article = require('./routes/articleRoutes');
 const user = require('./routes/userRoutes')
 const {
@@ -33,15 +33,14 @@ mongoose.connect('mongodb://localhost:27017/finaldb', {
 
 // listen to port 3000
 const { PORT = 3000 } = process.env;
-require("dotenv").config();
 
 const app = express();
 
 
 app.use(cors());
 app.options("*", cors());
-app.use(limiter);
 app.use(bodyParser.json());
+app.use(requestLogger);
 
 app.post(
   "/signin",
@@ -68,18 +67,23 @@ app.post(
   }),
   createUser
 );
-app.get("/users/me", auth, getUserInfo);
+
 app.use('/articles', auth, article)
 app.use('/users', auth, user)
+
 app.use(helmet());
+app.use(limiter);
 
 app.use("*", (err) => {
   if (err.name === "NotFound") {
     throw new NotFoundError("Requested resource not found");
   }
 });
+app.use(errorLogger); // enabling the error logger
 
-app.use((err, req, res, next) => {
+app.use(errors()); // celebrate error handler
+ 
+app.use((err, req, res, next) => { //centralized error handling
   res.status(err.statusCode).send({
     message: err.statusCode === 500 ? "Error from server" : err.message,
   });
