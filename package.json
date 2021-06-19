@@ -4,7 +4,6 @@
   "description": "Final Project API",
   "main": "app.js",
   "scripts": {
-    "test": "test",
     "dev": "NODE_ENV=development nodemon app.js",
     "start": "NODE_ENV=production node app.js"
   },
@@ -25,14 +24,15 @@
   },
   "homepage": "https://github.com/desinews/news-explorer-api#readme",
   "devDependencies": {
-    "express-winston": "^4.1.0",
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "install-peerdeps": "^3.0.3",
     "jest": "^27.0.4",
-    "jsonwebtoken": "^8.5.1",
-    "nodemon": "^2.0.7",
-    "winston": "^3.3.3"
+    "nodemon": "^2.0.7"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.5.1",
     "body-parser": "^1.19.0",
     "celebrate": "^14.0.0",
     "cors": "^2.8.5",
@@ -43,6 +43,8 @@
     "joi": "^17.4.0",
     "mongoose": "^5.12.13",
     "rate-limit": "^0.1.1",
-    "validator": "^13.6.0"
+    "validator": "^13.6.0",
+    "winston": "^3.3.3",
+    "express-winston": "^4.1.0"
   }
 }

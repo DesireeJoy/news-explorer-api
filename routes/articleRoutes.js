@@ -8,7 +8,7 @@ router.use(bodyParser.json());
 
 router.get('/', getSavedArticles);
 router.post('/', celebrate({
-    body: Joi.object().keys({
+  body: Joi.object().keys({
     keyword: Joi.string().required().min(2).max(30),
     title: Joi.string().required().min(2).max(30),
     text: Joi.string().required().min(2),

@@ -9,21 +9,20 @@ const {
   NotFoundError, InvalidError, MongoError, AuthError,
 } = require('../middleware/errorhandling');
 
-
 // returns information about the logged-in user (email and name)
 
 function getUserInfo(req, res, next) {
   User.findById(req.user._id)
     .then((user) => {
       if (!user) {
-        throw new NotFoundError("User Not Found");
+        throw new NotFoundError('User Not Found');
       } else {
         return res.status(200).send({ email: user.email, name: user.name });
       }
     })
     .catch((err) => {
-      if (err.name === 'CastError') { throw new InvalidError("Invalid Data"); }
-      if (err.name === 'NotFound') { throw new NotFoundError("User Not Found"); }
+      if (err.name === 'CastError') { throw new InvalidError('Invalid Data Entered'); }
+      if (err.name === 'NotFound') { throw new NotFoundError('User Not Found'); }
     })
     .catch(next);
 }
@@ -42,44 +41,40 @@ function createUser(req, res, next) {
       email, name,
     }))
     .catch((err) => {
-      if (err.code === 11000 && err.name === 'MongoError') { throw new MongoError("Duplicate User"); }
-      if (err.name === 'ValidationError') { throw new InvalidError("Invalid Data"); }
+      if (err.code === 11000 && err.name === 'MongoError') { throw new MongoError('Duplicate User'); }
+      if (err.name === 'ValidationError') { throw new InvalidError('Invalid Data'); }
     })
     .catch(next);
 }
 
-
-
-
 function loginUser(req, res, next) {
   const { email, password } = req.body;
-  User.findOne({ email: email })
-    .select("password")
+  User.findOne({ email })
+    .select('password')
     .then((user) => {
       if (!user) {
-        return Promise.reject(new InvalidError("Incorrect password or email"));
+        return Promise.reject(new InvalidError('Incorrect password or email'));
       }
 
       return bcrypt.compare(password, user.password).then((match) => {
         if (!match) {
           return Promise.reject(
-            new InvalidError("Incorrect password or email")
+            new InvalidError('Incorrect password or email'),
           );
         }
         const token = jwt.sign(
           { _id: user._id },
-          NODE_ENV === "production" ? JWT_SECRET : "dev-secret",
-          { expiresIn: "7d" }
+          NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+          { expiresIn: '7d' },
         );
 
         res.send({ token });
       });
     })
     .catch(() => {
-      throw new AuthError("Authorization Error");
+      throw new AuthError('Authorization Error');
     })
     .catch(next);
 }
-
 
 module.exports = { getUserInfo, createUser, loginUser };

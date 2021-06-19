@@ -1,6 +1,6 @@
 const Article = require('../models/article');
 const {
-  NotFoundError, InvalidError, MongoError, AuthError,
+  NotFoundError, InvalidError, AuthError,
 } = require('../middleware/errorhandling');
 
 function getSavedArticles(req, res, next) {
@@ -22,7 +22,7 @@ function createArticle(req, res, next) {
       res.send(article);
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') { throw new InvalidError('no'); }
+      if (err.name === 'ValidationError') { throw new InvalidError('Invalid Data Entered'); }
     })
     .catch(next);
 }
@@ -31,14 +31,14 @@ function deleteArticle(req, res, next) {
   Article.findById(req.params.articleId)
     .then((article) => {
       if (!article) {
-        throw new NotFoundError('no');
+        throw new NotFoundError('Article Not Found');
       }
       if (String(article.owner) !== req.user._id) {
-        throw new AuthError('no3');
+        throw new AuthError('This action is not authorized');
       }
       return Article.deleteOne(article)
         .then(() => {
-          res.status(200).send({ message: no4 });
+          res.status(200).send({ message: 'Article Deleted' });
         });
     })
     .catch(next);
