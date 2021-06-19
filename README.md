@@ -1,8 +1,8 @@
 # news-explorer-api
 
-### News Explorer API
+## Author: Desiree Joy
 
-# Author: Desiree Joy
+## Links
 
 https://desinews.students.nomoreparties.site/
 
