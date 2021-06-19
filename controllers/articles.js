@@ -1,7 +1,7 @@
 const Article = require('../models/article');
 const {
   NotFoundError, InvalidError, MongoError, AuthError,
-} = require('../middleware/errorHandling');
+} = require('../middleware/errorhandling');
 
 function getSavedArticles(req, res, next) {
   Article.find({})
