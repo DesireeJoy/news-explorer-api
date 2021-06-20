@@ -35,9 +35,11 @@ router.post(
   }),
   createUser,
 );
-router.get('/signin', (req, res) => {
-  res.send('message: No');
-});
+router.get(
+  '/signin', (req, res) => {
+    res.send('message: No');
+  },
+);
 router.use('/articles', auth, article);
 router.use('/users', auth, user);
 

@@ -31,10 +31,14 @@ const app = express();
 app.use(cors());
 app.options('*', cors());
 app.use(bodyParser.json());
-app.use(requestLogger);
-app.use('/', routes);
+app.use(requestLogger); // Logs all requests to server
+
+app.use('/', routes); // Main Router File
+
 app.use(helmet());
-app.use(limiter);
+// safeguard your application or API from usual security risks like XSS, Content Security Policy
+
+app.use(limiter); // Stops DDOS attacks
 
 app.use('*', (err) => {
   if (err.name === 'NotFound') {
