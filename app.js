@@ -3,18 +3,14 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const routes = require('./routes/index');
+const limiter = require('./middleware/limiter');
 
 const { NotFoundError } = require('./middleware/errorhandling');
 
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per window
-});
 // connect to mongodb servwe
 mongoose.connect('mongodb://localhost:27017/finaldb', {
   useNewUrlParser: true,
