@@ -5,4 +5,4 @@ const limiter = rateLimit({
   max: 100, // max request are set to 100 per IP
 });
 
-module.exports = { limiter };
+module.exports = limiter;
