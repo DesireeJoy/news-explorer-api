@@ -12,7 +12,7 @@ const {
 // returns information about the logged-in user (email and name)
 
 function getUserInfo(req, res, next) {
-  User.findById(req.user._id)
+  User.findOne(req.body.email)
     .then((user) => {
       if (!user) {
         throw new NotFoundError('User Not Found');
