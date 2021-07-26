@@ -26,6 +26,7 @@
   "devDependencies": {
     "eslint": "^7.29.0",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4",
     "install-peerdeps": "^3.0.3",
     "jest": "^27.0.4",
     "nodemon": "^2.0.7"
