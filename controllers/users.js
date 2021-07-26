@@ -12,6 +12,7 @@ const {
 // returns information about the logged-in user (email and name)
 
 function getUserInfo(req, res, next) {
+  console.log(`This is the stuff${req.body}`);
   User.findOne(req.body.email)
     .then((user) => {
       if (!user) {
