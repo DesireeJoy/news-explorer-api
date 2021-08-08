@@ -11,14 +11,13 @@ const articleSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 2,
-    maxlength: 30,
   },
-  text: {
+  description: {
     type: String,
     required: true,
     minlength: 2,
   },
-  date: {
+  publishedAt: {
     type: String,
     required: true,
   },
@@ -28,7 +27,7 @@ const articleSchema = new mongoose.Schema({
     minlength: 2,
 
   },
-  link: {
+  url: {
     type: String,
     required: true,
     validate: {
@@ -38,7 +37,7 @@ const articleSchema = new mongoose.Schema({
       message: 'Invalid link',
     },
   },
-  image: {
+  urlToImage: {
     type: String,
     required: true,
     validate: {
