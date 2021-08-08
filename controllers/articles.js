@@ -6,6 +6,7 @@ const {
 function getSavedArticles(req, res, next) {
   Article.find({ owner: req.user._id })
     .then((article) => {
+        console.log("I am " + req.user._id)
       res.status(200).send(article);
     })
     .catch(next);
