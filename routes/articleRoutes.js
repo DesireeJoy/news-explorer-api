@@ -10,12 +10,12 @@ router.get('/', getSavedArticles);
 router.post('/', celebrate({
   body: Joi.object().keys({
     keyword: Joi.string().required().min(2).max(30),
-    title: Joi.string().required().min(2).max(30),
-    text: Joi.string().required().min(2),
-    date: Joi.string().required(),
+    title: Joi.string().required().min(2),
+    description: Joi.string().required().min(2),
+    publishedAt: Joi.string().required(),
     source: Joi.string().required().min(2),
-    link: Joi.string().required().uri(),
-    image: Joi.string().required().uri(),
+    url: Joi.string().required().uri(),
+    urlToImage: Joi.string().required().uri(),
   }),
 }), createArticle);
 router.delete('/:articleId', celebrate({
