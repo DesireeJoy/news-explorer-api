@@ -6,12 +6,14 @@ const { NODE_ENV = 'production', JWT_SECRET = 'dev-secret' } = process.env;
 
 function auth(req, res, next) {
   const { authorization } = req.headers;
-  if (!authorization || !authorization.startsWith('Bearer ')) {
+  if (!authorization) {
     throw new AuthError('Authorization required!');
   }
-
+  if (!authorization.startsWith('Bearer ')) {
+    throw new AuthError('Authorization required!!');
+  }
   const token = authorization.replace('Bearer ', '');
-
+  console.log(token);
   let payload;
   try {
     payload = jwt.verify(
