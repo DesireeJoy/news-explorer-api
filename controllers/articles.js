@@ -13,16 +13,16 @@ function getSavedArticles(req, res, next) {
 
 function createArticle(req, res, next) {
   const {
-    keyword, title, text, date, source, link, image,
+    keyword, title, description, publishedAt, source, url, urlToImage,
   } = req.body;
   Article.create({
-    keyword, title, text, date, source, link, image, owner: req.user._id,
+    keyword, title, description, publishedAt, source, url, urlToImage, owner: req.user._id,
   })
     .then((article) => {
       res.send(article);
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') { throw new InvalidError('Invalid Data Entered'); }
+      if (err.name === 'ValidationError') { throw new InvalidError(invalidDataMessage); }
     })
     .catch(next);
 }
