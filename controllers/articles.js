@@ -4,7 +4,7 @@ const {
 } = require('../middleware/errorhandling');
 
 function getSavedArticles(req, res, next) {
-  Article.find({})
+  Article.find({ owner: req.user._id })
     .then((article) => {
       res.status(200).send(article);
     })
