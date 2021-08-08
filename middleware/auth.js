@@ -22,7 +22,7 @@ function auth(req, res, next) {
       NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
     );
   } catch (err) {
-    throw new AuthError('Authorization required.');
+    throw new AuthError('Authorization requiredc.');
   }
 
   req.user = payload;
