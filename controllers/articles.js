@@ -34,11 +34,11 @@ function deleteArticle(req, res, next) {
         throw new NotFoundError('Article Not Found');
       }
       if (String(article.owner) !== req.user._id) {
-        throw new AuthError('This action is not authorized');
+        throw new AuthError("You are not authorized to delete this"");
       }
       return Article.deleteOne(article)
         .then(() => {
-          res.status(200).send({ message: 'Article Deleted' });
+          res.status(200).send({ message: deleteMessage });
         });
     })
     .catch(next);
