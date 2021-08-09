@@ -17,7 +17,7 @@ function getUserInfo(req, res, next) {
       if (!user) {
         throw new NotFoundError('User Not Found');
       } else {
-        return res.status(200).send({ email: user.email, name: user.username });
+        return res.status(200).send({ email: user.email, name: user.name });
       }
     })
     .catch((err) => {
