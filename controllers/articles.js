@@ -6,7 +6,7 @@ const {
 function getSavedArticles(req, res, next) {
   Article.find({ owner: req.user._id })
     .then((article) => {
-        console.log("I am " + req.user._id)
+      console.log(`I am ${req.user._id}`);
       res.status(200).send(article);
     })
     .catch(next);
@@ -35,7 +35,7 @@ function deleteArticle(req, res, next) {
         throw new NotFoundError('Article Not Found');
       }
       if (String(article.owner) !== req.user._id) {
-        throw new AuthError("You are not authorized to delete this"");
+        throw new AuthError('You are not authorized to delete this');
       }
       return Article.deleteOne(article)
         .then(() => {
