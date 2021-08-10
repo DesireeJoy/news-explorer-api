@@ -23,7 +23,7 @@ function createArticle(req, res, next) {
       res.send(article);
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') { throw new InvalidError("Invalid Data)";}
+      if (err.name === 'ValidationError') { throw new InvalidError("Invalid Data";}
     })
     .catch(next);
 }
