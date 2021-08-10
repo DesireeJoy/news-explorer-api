@@ -39,8 +39,7 @@ function deleteArticle(req, res, next) {
       }
       return Article.deleteOne(article)
         .then(() => {
-          console.log('Deleted');
-          res.status(200).send({ message: deleteMessage });
+          res.send({ message: 'Article deleted' });
         });
     })
     .catch(next);
