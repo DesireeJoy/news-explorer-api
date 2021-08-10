@@ -1,6 +1,6 @@
 const Article = require('../models/article');
 const {
-  NotFoundError, InvalidError, AuthError,
+  NotFoundError, InvalidError, AuthError, handle500,
 } = require('../middleware/errorhandling');
 
 function getSavedArticles(req, res, next) {
@@ -23,7 +23,7 @@ function createArticle(req, res, next) {
       res.send(article);
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') { throw new InvalidError(invalidDataMessage); }
+      if (err.name === 'ValidationError') { throw new InvalidError("Invalid Data)";}
     })
     .catch(next);
 }
@@ -39,6 +39,7 @@ function deleteArticle(req, res, next) {
       }
       return Article.deleteOne(article)
         .then(() => {
+          console.log("Deleted")
           res.status(200).send({ message: deleteMessage });
         });
     })
