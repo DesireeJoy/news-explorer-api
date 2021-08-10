@@ -6,10 +6,8 @@ require('dotenv').config();
 const { NODE_ENV, JWT_SECRET } = process.env;
 const User = require('../models/user');
 const {
-  NotFoundError, InvalidError, MongoError, AuthError,
+  NotFoundError, InvalidError, AuthError, MongoError,
 } = require('../middleware/errorhandling');
-
-// returns information about the logged-in user (email and name)
 
 function getUserInfo(req, res, next) {
   User.findById(req.user._id)
