@@ -19,6 +19,7 @@ function getUserInfo(req, res, next) {
       }
     })
     .catch((err) => {
+      console.log(error);
       if (err.name === 'CastError') { throw new InvalidError('Invalid Data Entered'); }
       if (err.name === 'NotFound') { throw new NotFoundError('User Not Found'); }
     })
