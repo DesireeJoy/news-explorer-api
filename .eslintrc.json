@@ -1,0 +1,40 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": "airbnb-base",
+  "rules": {
+    "no-underscore-dangle": [
+      "off",
+      {
+        "allow": ["id"]
+      }
+    ],
+    "linebreak-style": 0,
+    "consistent-return": 0,
+    "no-console": 0,
+    "max-classes-per-file": ["error", 5]
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "settings": {},
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.spec.js", "**/*.spec.jsx"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}
