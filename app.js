@@ -56,7 +56,7 @@ app.use((err, req, res, next) => { // centralized error handling
   next();
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   // if everything works fine, the console will show which port the application is listening to
   console.log(`App listening at port ${PORT}`);
 });
