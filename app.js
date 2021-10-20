@@ -7,7 +7,11 @@ const cors = require('cors');
 const { errors } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middleware/logger');
 const routes = require('./routes/index');
+
 const limiter = require('./middleware/limiter');
+
+// Use below constant to connect to Atlas DB Cluster
+// const uri = process.env.MONGODB_URI;
 
 const { NotFoundError } = require('./middleware/errorhandling');
 
