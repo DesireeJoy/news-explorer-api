@@ -18,12 +18,16 @@ const uri = process.env.MONGODB_URI;
 const { NotFoundError } = require('./middleware/errorhandling');
 
 // connect to mongodb servwe
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true,
-});
+try {
+  mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  });
+} catch (e) {
+  console.log('could not connect');
+}
 
 // listen to port 3000
 const { PORT = 3000 } = process.env;
