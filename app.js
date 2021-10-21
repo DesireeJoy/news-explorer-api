@@ -10,10 +10,9 @@ const routes = require('./routes/index');
 
 const limiter = require('./middleware/limiter');
 
+// connect to mongo db Atlas Cluster
 const uri = process.env.MONGODB_URI;
-
-// Use below constant to connect to Atlas DB Cluster
-// const uri = process.env.MONGODB_URI;
+// const uri = 'mongodb://localhost:27017/';
 
 const { NotFoundError } = require('./middleware/errorhandling');
 
